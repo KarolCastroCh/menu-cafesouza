@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Nav from '../components/Nav'
 import Card from '../components/Card'
 import Detalle from '../components/Detalle'
+import Footer from '../components/Footer'
     
     function Menu() {
     
@@ -12,7 +13,7 @@ useEffect(() => {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic')
     .then((respuesta) => respuesta.json())
     .then((datos) => {
-        const categorias = ['Bebidas Frías', 'Cafés']  
+        const categorias = ['Cold Beverages', 'Coffee']  
 
         const productosTransformados = datos.drinks.map((bebida) => {
         const nombreMinuscula = bebida.strDrink.toLowerCase()
@@ -23,7 +24,7 @@ useEffect(() => {
         nombre: bebida.strDrink,
         imagen: bebida.strDrinkThumb,
         precio: (Math.random() * 10 + 2).toFixed(2),
-        categoria: esCafe ? 'Cafés' : 'Bebidas Frías',
+        categoria: esCafe ? 'Coffee' : 'Cold Beverages',
     }
 })
         setProductos(productosTransformados)
@@ -57,26 +58,26 @@ useEffect(() => {
 
     
 
-        <div className="flex p-4 bg-[#3F3832] w-full justify-center gap-10 mt-30">
+        <div className="flex flex-col lg:flex-row p-4 bg-[#3F3832] w-full justify-center items-center lg:gap-10 mt-20 sm:mt-30">
             <div className="text-md text-[#FDF9E0] font-body font-semibold">
                 <p>Filtros</p>
                 <select value={ordenPrecio} onChange={(e) => setOrdenPrecio(e.target.value)} className="bg-[#A79A8A] text-[#FDF9E0] rounded-md p-2">
-                    <option value="" className="text-sm font-body font-semibold">Ordenar por Precio</option>
-                    <option value="asc" className="text-sm font-body font-semibold">Menor a Mayor</option>
-                    <option value="desc" className="text-sm font-body font-semibold">Mayor a Menor</option>
+                    <option value="" className="text-sm font-body font-semibold">Order by Price</option>
+                    <option value="asc" className="text-sm font-body font-semibold">Low to High</option>
+                    <option value="desc" className="text-sm font-body font-semibold">High to Low</option>
                 </select>
             </div>
-            <div className="w-92 h-12 bg-[#FDF9E0] rounded-full p-2 my-auto">
-                <input type="text" value={busqueda} onChange={(e) => setBusqueda(e.target.value)} placeholder="Buscar..." className="border-none focus:outline-none"></input>
+            <div className="w-full sm:w-92 h-12 bg-[#FDF9E0] rounded-full p-2 my-auto">
+                <input type="text" value={busqueda} onChange={(e) => setBusqueda(e.target.value)} placeholder="Search..." className="border-none focus:outline-none"></input>
             </div>
 
             <div className="flex flex-col my-auto">
-                <div className="flex gap-6 font-body text-[#FDF9E0]">
-            <button onClick={() => setCategoriaActiva(categoriaActiva === 'Bebidas Frías' ? null : 'Bebidas Frías')} 
-            className={`text-lg font-semibold cursor-pointer hover:scale-105 ${categoriaActiva === 'Bebidas Frías' ? 'text-[#3F3832] bg-[#A79A8A] rounded-2xl p-2' : 'text-[#FDF9E0]' }`}> Bebidas Frías </button>
+                <div className="flex flex-wrap gap-4 sm:gap-6 font-body text-[#FDF9E0] justify-center">
+            <button onClick={() => setCategoriaActiva(categoriaActiva === 'Cold Beverages' ? null : 'Cold Beverages')} 
+            className={`text-lg font-semibold cursor-pointer hover:scale-105 ${categoriaActiva === 'Cold Beverages' ? 'text-[#3F3832] bg-[#A79A8A] rounded-2xl p-2' : 'text-[#FDF9E0]' }`}> Cold Beverages </button>
 
-            <button onClick={() => setCategoriaActiva(categoriaActiva === 'Cafés' ? null : 'Cafés')}
-            className={`text-lg font-semibold cursor-pointer hover:scale-105 ${categoriaActiva === 'Cafés' ? 'text-[#3F3832] bg-[#A79A8A] rounded-2xl p-2' : 'text-[#FDF9E0]' }`}>Cafés</button>
+            <button onClick={() => setCategoriaActiva(categoriaActiva === 'Coffee' ? null : 'Coffee')}
+            className={`text-lg font-semibold cursor-pointer hover:scale-105 ${categoriaActiva === 'Coffee' ? 'text-[#3F3832] bg-[#A79A8A] rounded-2xl p-2' : 'text-[#FDF9E0]' }`}>Coffee</button>
             
                 </div>
             </div>
@@ -84,7 +85,7 @@ useEffect(() => {
 
         </div>
 
-        <div className="grid grid-cols-4 gap-2 p-6 mx-auto place-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 my-10 mx-4 lg:mx-10">
             {productosFinal.map((producto) => (
                 <Card key={producto.id} 
                 id={producto.id} 
@@ -100,6 +101,8 @@ useEffect(() => {
             onClose={() => setProductoSeleccionado(null)}
             precio={productos.find((producto) => producto.id === productoSeleccionado)?.precio} />
             )}
+
+            <Footer />
 
     </>
     }

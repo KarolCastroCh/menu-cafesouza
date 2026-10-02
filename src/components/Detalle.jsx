@@ -13,16 +13,16 @@ function Modal({ nombre, precio, id, imagen, onClose, descripcion }) {
 
     return (
         <div className="fixed inset-0 bg-black/50 z-40 flex items-center justify-center">
-        <div className="bg-[#FDF9E0] w-1/2 z-50 p-4 rounded-lg shadow-lg">       
+        <div className="bg-[#FDF9E0] w-[90%] sm:w-3/4 lg:w-1/2 max-h-[85vh] overflow-y-auto z-50 p-4 rounded-lg shadow-lg">       
         
             {detalle ? (
-                <div className="grid grid-cols-2 gap-8">
-                    <img src={detalle.strDrinkThumb} alt={detalle.strDrink} className="h-full w-full object-cover rounded-lg" />   
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
+                    <img src={detalle.strDrinkThumb} alt={detalle.strDrink} className="h-48 w-full sm:h-full  object-cover rounded-lg" />   
                     <div className="flex flex-col gap-4"> 
-                        <h3 className="text-md font-semibold text-[#3F3832] font-display">{detalle.strDrink}</h3>
+                        <h3 className="text-md font-semibold text-[#3F3832] font-display sm:text-md ">{detalle.strDrink}</h3>
                         <p className="text-sm font-body text-[#3F3832]">${precio}</p> 
                         <p className="text-sm font-body text-[#3F3832]">{detalle.strInstructions}</p>                     
-                        <button onClick={onClose}  className="bg-[#3F3832] max-w-1/3 rounded-full mt-auto text-[#FDF9E0] p-2 font-body cursor-pointer hover:bg-[#A79A8A] hover:text-white">Cerrar</button>  
+                        <button onClick={onClose}  className="bg-[#3F3832] max-w-1/3 rounded-full mt-auto text-[#FDF9E0] p-2 font-body cursor-pointer hover:bg-[#A79A8A] hover:text-white">CLOSE</button>  
                     </div>         
                 </div>
             ) : (

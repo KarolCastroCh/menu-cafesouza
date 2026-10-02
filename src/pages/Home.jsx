@@ -10,6 +10,7 @@ import Pie from '../img/Pie.png'
 import CoffeeBeans from '../img/Coffee Beans.png'
 import CoffeeMaker from '../img/Coffee Maker.png'
 import CoffeeCup from '../img/Coffee cup.png'
+import BorderFX from '../img/bordefx.png'
 
 
 function Home() {
@@ -82,7 +83,7 @@ function Home() {
             <h2 className="text-xl font-bold text-[#3F3832] font-body mb-12">WHY US?</h2>
 
             <div className="w-full max-w-3xl mx-auto bg-contain bg-no-repeat bg-center py-16 px-8"
-        style={{ backgroundImage: "url('./src/img/bordefx.png')" }}>
+        style={{ backgroundImage: "url('" + BorderFX + "')" }}>
 
             <div className="flex flex-col sm:gap-8 items-center h-full my-6 mx-4 sm:mx-20 lg:mx-40">
                 <div className="flex items-center justify-between w-full">

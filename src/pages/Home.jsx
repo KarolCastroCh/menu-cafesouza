@@ -4,6 +4,12 @@ import Card from '../components/Card'
 import Footer from '../components/Footer'
 import Detalle from '../components/Detalle'
 import { Link } from 'react-router-dom'
+import coffeeTexture from '../img/coffe-texture.png'
+import logoBlanco from '../img/LOGO cafesouza blanco.png'
+import Pie from '../img/Pie.png'
+import CoffeeBeans from '../img/Coffee Beans.png'
+import CoffeeMaker from '../img/Coffee Maker.png'
+import CoffeeCup from '../img/Coffee cup.png'
 
 
 function Home() {
@@ -44,8 +50,8 @@ function Home() {
             <Link to="/menu" className="justify-center bg-[#FDF9E0] text-[#3F3832] cursor-pointer hover:bg-white hover:text-[#A79A8A] hover:border-[#A79A8A] hover:border-2 rounded-full p-4 font-body font-semibold w-auto px-8">MENU</Link>
         </div>
        <div className="relative sm:h-96 lg:h-auto">
-    <img src="./src/img/coffe-texture.png" alt="café souza" className="w-full h-full object-cover"/>
-    <img src="./src/img/LOGO cafesouza blanco.png" alt="café souza" className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 sm:w-1/2"/>
+    <img src={coffeeTexture} alt="café souza" className="w-full h-full object-cover"/>
+    <img src={logoBlanco} alt="café souza" className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 sm:w-1/2"/>
         </div>       
     </div>
 
@@ -80,23 +86,23 @@ function Home() {
 
             <div className="flex flex-col sm:gap-8 items-center h-full my-6 mx-4 sm:mx-20 lg:mx-40">
                 <div className="flex items-center justify-between w-full">
-                <img src="./src/img/Pie.png" alt="Postre icono" className="w-8" />
+                <img src={Pie} alt="Postre icono" className="w-8" />
                 <p className="font-body font-semibold lg:text-base sm:text-sm">DRINKS WITH THE BEST INGREDIENTS</p>
                 </div>
 
             <div className="flex items-center justify-between w-full">
                 <p className="font-body font-semibold lg:text-base sm:text-sm">COFFEE OF THE HIGHEST QUALITY</p>
-                <img src="./src/img/Coffee Beans.png" alt="Postre icono" className="w-8" />
+                <img src={CoffeeBeans} alt="Postre icono" className="w-8" />
             </div>
 
             <div className="flex items-center justify-between w-full">
-                <img src="./src/img/Coffee Maker.png" alt="Postre icono" className="w-8" />
+                <img src={CoffeeMaker} alt="Postre icono" className="w-8" />
                 <p className="font-body font-semibold lg:text-base sm:text-sm">HOT AND COLD DRINKS</p>
             </div>
 
             <div className="flex items-center justify-between w-full">
                 <p className="font-body font-semibold lg:text-base sm:text-sm">HANDMADE AND NATURAL DRINKS</p>
-                <img src="./src/img/Coffee cup.png" alt="Postre icono" className="w-8" />
+                <img src={CoffeeCup} alt="Postre icono" className="w-8" />
             </div>
             </div>
             </div>
